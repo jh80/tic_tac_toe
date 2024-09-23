@@ -1,6 +1,9 @@
+require "./square.rb"
+
 class GameBoard
 
-  # TO DO come back later to tighten the creattion variable setting of squares (use each)def initialize(width, height=width) 
+  # TO DO come back later to tighten the creattion variable setting of squares (use each)
+  def initialize(width, height=width) 
     @squares = []
     # Create all the necessary Square instances
     (width * height).times do |sq_num|
@@ -22,11 +25,11 @@ class GameBoard
 
   def print_board
     # TO DO later refactor to use an each loop
-    puts "  1   2   3 "
-    puts "a  #{@a1} | #{@a2} | #{@a3} "
+    puts "   1   2   3 "
+    puts "a  #{@squares[0].contents} | #{@squares[1].contents} | #{@squares[2].contents} "
     puts "  --- --- ---"
-    puts "b  #{@b1} | #{@b2} | #{@b3} "
+    puts "b  #{@squares[3].contents} | #{@squares[4].contents} | #{@squares[5].contents} "
     puts "  --- --- ---"
-    puts "c  #{@c1} | #{@c2} | #{@c3} "
+    puts "c  #{@squares[6].contents} | #{@squares[7].contents} | #{@squares[8].contents} "
   end
 end

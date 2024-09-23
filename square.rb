@@ -1,4 +1,6 @@
 class Square 
+  attr_accessor :contents
+
   @@all = []
   @@top = "---"
   @@bottom = @@top
