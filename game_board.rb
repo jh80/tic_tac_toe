@@ -32,4 +32,15 @@ class GameBoard
     puts "  --- --- ---"
     puts "c  #{@squares[6].contents} | #{@squares[7].contents} | #{@squares[8].contents} "
   end
+
+  def execute_pick(square_choice, player)
+    @squares.each do |square|
+      if square.name == square_choice
+        square.contents = player.mark
+        return
+      end
+    end
+    return false
+  end
+
 end

@@ -1,5 +1,6 @@
 class Square 
   attr_accessor :contents
+  attr_reader :name, :mark
 
   @@all = []
   @@top = "---"
