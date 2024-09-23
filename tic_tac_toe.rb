@@ -1,16 +1,5 @@
 require "./game_board.rb"
-
-class Player
-  def initialize(name, mark)
-    @name = name
-    @mark = mark
-  end
-
-  def get_sq_choice
-    puts '#{@name.capitalize}, what sq do you pick?'
-    sq_choice = gets.chomp
-  end
-end
+require "./player.rb"
 
 game = GameBoard.new()
 player1 = Player.new('player1', 'x')
