@@ -1,7 +1,6 @@
 require "./square.rb"
 
 class GameBoard
-
   # TO DO come back later to tighten the creattion variable setting of squares (use each)
   def initialize(width, height=width) 
     @squares = []
@@ -23,6 +22,22 @@ class GameBoard
     puts "  --- --- ---"
     puts "c  #{@squares[6].contents} | #{@squares[7].contents} | #{@squares[8].contents} "
   end
+
+  def find_sq_by_name(sq_name, squares) 
+    squares.each do |square|
+      if square.name == sq_name.downcase
+        return square
+      end
+    end
+    puts "I could not find your square. Alert programmer of issue."
+  end
+
+  # Alternate route, more efficient, less dynamic
+  # def find_sq_by_name(sq_name, squares, width) 
+  #   row_num = width * (sq_name[0].to_i - 61) 
+  #   col_num = sq_name[1].to_i
+  #   squares[row_num + col_num]
+  # end
 
   def execute_pick(square_choice, player)
     @squares.each do |square|
