@@ -28,7 +28,7 @@ class GameBoard
     @squares.each do |square|
       if square.name == square_choice
         square.contents = player.mark
-        return
+        return true
       end
     end
     return false
