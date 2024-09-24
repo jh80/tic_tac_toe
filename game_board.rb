@@ -40,13 +40,12 @@ class GameBoard
   # end
 
   def execute_pick(square_choice, player)
-    @squares.each do |square|
-      if square.name == square_choice
+    if square = find_sq_by_name(square_choice, @squares)
         square.contents = player.mark
-        return true
-      end
+      return true  
+    else
+      return false
     end
-    return false
   end
 
 end
