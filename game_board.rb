@@ -23,6 +23,16 @@ class GameBoard
     puts "c  #{@squares[6].contents} | #{@squares[7].contents} | #{@squares[8].contents} "
   end
 
+  # TO DO this is pretty much find_sq_by_name I don't think I need both- pick one
+  def sq_index_from_name(sq_name, squares) 
+    squares.each_with_index do |square, index|
+      if square.name == sq_name.downcase
+        return index
+      end
+    end
+    puts "I could not find your square. Alert programmer of issue."    
+  end
+
   def find_sq_by_name(sq_name, squares) 
     squares.each do |square|
       if square.name == sq_name.downcase
@@ -39,6 +49,7 @@ class GameBoard
   #   squares[row_num + col_num]
   # end
 
+  # TO DO maybe get rid of find_by_sq_name method and use sq_index method
   def execute_pick(square_choice, player)
     if square = find_sq_by_name(square_choice, @squares)
         square.contents = player.mark
