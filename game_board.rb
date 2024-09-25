@@ -61,4 +61,21 @@ class GameBoard
     end
   end
 
+  def column_winner?(player) 
+    # Start a check at top of each column
+    (0...@width).each do |column|
+      winner = true
+      # Check down the column
+      (column...(@width * @height)).step(@width) do |index|
+        unless @squares[index].contents == player.mark 
+          winner = false
+          break
+        end
+      end
+      if winner == true
+        return true 
+      end
+    end
+    return false
+  end 
 end
