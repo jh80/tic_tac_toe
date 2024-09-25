@@ -4,6 +4,8 @@ class GameBoard
   # TO DO come back later to tighten the creattion variable setting of squares (use each)
   def initialize(width, height=width) 
     @squares = []
+    @width = width
+    @height = height
     # Create all the necessary Square instances
     (width * height).times do |sq_num|
       # This works without rounding down because both numbers are integers
