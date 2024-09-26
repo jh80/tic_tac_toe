@@ -78,4 +78,23 @@ class GameBoard
     end
     return false
   end 
+
+  # TO DO can row_winner? and column_winner? be reduced into one method?
+  def row_winner?(player) 
+    # Start at begining of each row
+    (0...(@width*@height)).step(@width) do |row|
+      winner = true 
+      # Check through row
+      (row...row+@width).each do |index| 
+        unless @squares[index].contents == player.mark 
+          winner = false
+          break
+        end 
+      end
+      if winner == true 
+        return true
+      end
+    end
+    return false
+  end
 end
