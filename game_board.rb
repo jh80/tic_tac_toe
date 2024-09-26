@@ -97,4 +97,25 @@ class GameBoard
     end
     return false
   end
+
+  def diagonal_winner?(player) 
+    # Start at the top corners
+    (0...@width).step(@width - 1) do |starting_side|
+      winner = true 
+      # Check down diagonal
+      step_angle = starting_side == 0 ? (@width + 1) : (@width - 1)
+      ending_side = starting_side == 0 ? (@width * @height) : (@width * (@height - 1) + 1)
+      (starting_side...(ending_side)).step(step_angle) do |index| 
+        unless @squares[index].contents == player.mark 
+          winner = false
+          break 
+        end
+      end
+      # TO DO Shorten all these tiny coniditionals into one line
+      if winner == true 
+        return true
+      end
+    end
+    return false
+  end
 end
