@@ -8,6 +8,7 @@ class Player
 
   def get_sq_choice
     puts "#{@name}, what sq do you pick?"
-    sq_choice = gets.chomp
+    # Return players sq choice
+    gets.chomp
   end
 end
