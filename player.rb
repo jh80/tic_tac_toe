@@ -7,7 +7,7 @@ class Player
   end
 
   def get_sq_choice
-    puts "#{@name.capitalize}, what sq do you pick?"
+    puts "#{@name}, what sq do you pick?"
     sq_choice = gets.chomp
   end
 end
