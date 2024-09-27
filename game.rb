@@ -68,4 +68,12 @@ class Game
     end
     return false
   end
+
+def winner(player)
+  if column_winner?(player) || row_winner?(player) || diagonal_winner?(player) 
+    return player
+  end
+  return false
+end
+
 end
