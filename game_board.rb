@@ -1,7 +1,7 @@
 require "./square.rb"
 
 class GameBoard
-  attr_reader :squares
+  attr_reader :squares, :any_sq_available
   # TO DO come back later to tighten the creattion variable setting of squares (use each)
   def initialize(width, height=width) 
     @squares = []
@@ -67,5 +67,9 @@ class GameBoard
   def sq_available?(square)
     return true if square.contents == " "
     return false
+  end
+
+  def any_sq_available?
+    @squares.any?{|square| sq_available?(square)}
   end
 end
