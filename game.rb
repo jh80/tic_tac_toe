@@ -69,11 +69,28 @@ class Game
     return false
   end
 
-def winner(player)
-  if column_winner?(player) || row_winner?(player) || diagonal_winner?(player) 
-    return player
+  def winner(player)
+    if column_winner?(player) || row_winner?(player) || diagonal_winner?(player) 
+      return player
+    end
+    return false
   end
-  return false
-end
 
+  def play 
+    players = [@player1, @player2]
+    @board.print_board
+    loop do 
+      players.each do |player|
+        loop do
+          choice = player.get_sq_choice 
+          break if @board.execute_pick(choice, player)
+        end
+        @board.print_board
+        if winner(player) 
+          puts "#{player.name} has won! The game is over!"
+          return
+        end
+      end
+    end
+  end
 end
