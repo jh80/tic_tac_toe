@@ -54,9 +54,11 @@ class GameBoard
 
   # TO DO maybe get rid of find_by_sq_name method and use sq_index method
   def execute_pick(square_choice, player)
-    if square = find_sq_by_name(square_choice, @squares)
+    if square = find_sq_by_name(square_choice, @squares) 
+      if square.contents == " "
         square.contents = player.mark
-      return true  
+        return true  
+      end
     else
       return false
     end
