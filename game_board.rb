@@ -27,8 +27,8 @@ class GameBoard
   end
 
   # TO DO this is pretty much find_sq_by_name I don't think I need both- pick one
-  def sq_index_from_name(sq_name, squares) 
-    squares.each_with_index do |square, index|
+  def sq_index_from_name(sq_name) 
+    @squares.each_with_index do |square, index|
       if square.name == sq_name.downcase
         return index
       end
