@@ -36,8 +36,8 @@ class GameBoard
     puts "I could not find your square. Alert programmer of issue."    
   end
 
-  def find_sq_by_name(sq_name, squares) 
-    squares.each do |square|
+  def find_sq_by_name(sq_name) 
+    @squares.each do |square|
       if square.name == sq_name.downcase
         return square
       end
@@ -54,7 +54,7 @@ class GameBoard
 
   # TO DO maybe get rid of find_by_sq_name method and use sq_index method
   def execute_pick(square_choice, player)
-    if square = find_sq_by_name(square_choice, @squares) 
+    if square = find_sq_by_name(square_choice) 
       if square.contents == " "
         square.contents = player.mark
         return true  
