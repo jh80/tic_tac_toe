@@ -3,12 +3,21 @@ class Game
   attr_accessor :player1, :player2, :board
 
   def initialize(width = 3, height = width, player1_name = "Player1", player2_name = "Player2")
+    if width > 10 
+      width = 10
+      puts "The game board can be a maximum of 10 squares long. The width of the board is now 10."
+    end
+
+    if height > 10
+      height = 10
+      puts "The game board can be a maximum of 10 squares tall. The height of the board is now 10."
+    end
+    
     @player1 = Player.new(player1_name, "x")
     @player2 = Player.new(player2_name, "o")
     @width =  width
     @height = height
     @board = GameBoard.new(width)
-    
   end
 
   def column_winner?(player) 
