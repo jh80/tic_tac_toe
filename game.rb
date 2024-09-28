@@ -89,6 +89,12 @@ class Game
         if winner(player) 
           puts "#{player.name} has won! The game is over!"
           return
+        elsif !@board.any_sq_available?
+          puts "no one won, but the game is over."
+          puts "  ^   ^ "
+          puts "( >'.'< )"
+          puts "  m   m"
+          return
         end
       end
     end
