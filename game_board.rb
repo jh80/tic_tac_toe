@@ -18,12 +18,29 @@ class GameBoard
 
   def print_board
     # TO DO later refactor to use an each loop
-    puts "   1   2   3 "
-    puts "a  #{@squares[0].contents} | #{@squares[1].contents} | #{@squares[2].contents} "
-    puts "  --- --- ---"
-    puts "b  #{@squares[3].contents} | #{@squares[4].contents} | #{@squares[5].contents} "
-    puts "  --- --- ---"
-    puts "c  #{@squares[6].contents} | #{@squares[7].contents} | #{@squares[8].contents} "
+    count = 0
+    (1..@width).each do |column_num| 
+      print "   #{column_num}"
+    end
+    puts ""
+    (1..@height).each do |row_num|
+      row_letter = (row_num + 96).chr
+      print "#{row_letter } "
+      (1..@width).each do |column_num|
+        print " #{squares[count].contents}"
+        count += 1
+        print ' |' unless column_num == @width
+      end
+      unless row_num == @height
+        puts ""
+        print " "
+        (1..@width).each do 
+          print ' ---'
+        end
+        puts ""
+      end
+    end
+    puts ""
   end
 
   # TO DO this is pretty much find_sq_by_name I don't think I need both- pick one
