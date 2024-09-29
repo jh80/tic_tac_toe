@@ -28,9 +28,7 @@ class Game
           break
         end
       end
-      if winner == true
-        return true 
-      end
+      return true if winner == true
     end
     return false
   end 
@@ -47,9 +45,7 @@ class Game
           break
         end 
       end
-      if winner == true 
-        return true
-      end
+      return true if winner == true 
     end
     return false
   end
@@ -68,9 +64,7 @@ class Game
         end
       end
       # TO DO Shorten all these tiny coniditionals into one line
-      if winner == true 
-        return true
-      end
+      return true if winner == true 
     end
     return false
   end
@@ -92,10 +86,8 @@ class Game
           break if @board.execute_pick(choice, player)
         end
         @board.print_board
-        if winner(player) 
-          puts "#{player.name} has won! The game is over!"
-          return
-        elsif !@board.any_sq_available?
+        return puts "#{player.name} has won! The game is over!" if winner(player) 
+        if !@board.any_sq_available?
           puts "no one won, but the game is over."
           puts "  ^   ^ "
           puts "( >'.'< )"
