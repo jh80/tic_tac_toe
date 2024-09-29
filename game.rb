@@ -1,7 +1,4 @@
 class Game
-  # TO DO take out attr_accesssor if I can
-  attr_accessor :player1, :player2, :board
-
   def initialize(width = 3, height = width, player1_name = "Player1", player2_name = "Player2")
     if width > 10 
       width = 10
@@ -12,7 +9,7 @@ class Game
       height = 10
       puts "The game board can be a maximum of 10 squares tall. The height of the board is now 10."
     end
-    
+
     @player1 = Player.new(player1_name, "x")
     @player2 = Player.new(player2_name, "o")
     @width =  width
