@@ -4,7 +4,6 @@ require "./game_board.rb"
 require "./player.rb"
 require "./square.rb"
 require "./game.rb"
-require "./print_design.rb"
 
 our_game = Game.new()
 

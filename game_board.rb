@@ -1,6 +1,9 @@
 require "./square.rb"
+require "./print_design.rb"
 
 class GameBoard
+  include PrintDesign
+
   attr_reader :squares, :any_sq_available
   # TO DO come back later to tighten the creattion variable setting of squares (each)
   def initialize(width, height=width) 
@@ -29,10 +32,7 @@ class GameBoard
         print ' |' unless column_num == @width
       end
       unless row_num == @height
-        puts ""
-        print " "
-        (1..@width).each {print ' ---'}
-        puts ""
+        row_divider(@width)
       end
     end
     puts ""
