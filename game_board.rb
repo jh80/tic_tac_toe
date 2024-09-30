@@ -31,9 +31,7 @@ class GameBoard
         count += 1
         column_num == @width ? puts("") : print(' |')  
       end
-      unless row_num == @height
-        row_divider(@width)
-      end
+      row_divider(@width) unless row_num == @height
     end
     puts ""
   end
