@@ -7,7 +7,7 @@ class Player
   end
 
   def get_sq_choice
-    puts "#{@name}, what sq do you pick? Use the format: a1"
+    puts "#{@name}, what sq do you pick?"
     # Return players sq choice
     gets.chomp
   end
