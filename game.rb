@@ -1,4 +1,8 @@
+require "./print_design.rb"
+
 class Game
+  include PrintDesign
+
   def initialize(width = 3, height = width, player1_name = "Player1", player2_name = "Player2")
     if width > 10 
       width = 10
@@ -89,9 +93,7 @@ class Game
         return puts "#{player.name} has won! The game is over!" if winner(player) 
         if !@board.any_sq_available?
           puts "no one won, but the game is over."
-          puts "  ^   ^ "
-          puts "( >'.'< )"
-          puts "  m   m"
+          cat
           return
         end
       end
