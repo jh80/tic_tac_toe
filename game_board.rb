@@ -29,7 +29,7 @@ class GameBoard
       (1..@width).each do |column_num|
         print " #{squares[count].contents}"
         count += 1
-        print ' |' unless column_num == @width
+        column_num == @width ? puts("") : print(' |')  
       end
       unless row_num == @height
         row_divider(@width)
