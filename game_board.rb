@@ -86,6 +86,6 @@ class GameBoard
   end
 
   def any_sq_available?
-    @squares.any?{|square| sq_available?(square)}
+    @squares.any?{|square| square.available?}
   end
 end
