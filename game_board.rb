@@ -2,7 +2,7 @@ require "./square.rb"
 
 class GameBoard
   attr_reader :squares, :any_sq_available
-  # TO DO come back later to tighten the creattion variable setting of squares (use each)
+  # TO DO come back later to tighten the creattion variable setting of squares (each)
   def initialize(width, height=width) 
     @squares = []
     @width = width
@@ -82,6 +82,7 @@ class GameBoard
 
   def sq_available?(square)
     return true if square.available?
+    puts "That square has already been chosen, pick an available square."
     return false
   end
 
