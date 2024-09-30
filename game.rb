@@ -81,6 +81,13 @@ class Game
   end
 
   def play 
+    # Welcome players and give guidence
+    puts <<~RUBY 
+      \nHello! Welcome to tic-tac-toe! 
+      This game follows traditional tic-tac-toe rules.
+      Submit your square choice in the format of LetterNumber ex: a1 
+      Have fun! \n
+    RUBY
     players = [@player1, @player2]
     @board.print_board
     loop do 
