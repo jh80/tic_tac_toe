@@ -81,7 +81,7 @@ class GameBoard
   end
 
   def sq_available?(square)
-    return true if square.contents == " "
+    return true if square.available?
     return false
   end
 
