@@ -52,7 +52,7 @@ class GameBoard
   end
 
   def find_sq_by_name(sq_name) 
-    @squares.each do |square|
+    @squares.each do |square|     
       return square if square.name == sq_name.downcase
     end
     puts <<~RUBY
@@ -71,7 +71,7 @@ class GameBoard
   # TO DO maybe get rid of find_by_sq_name method and use sq_index method
   def execute_pick(square_choice, player)
     if square = find_sq_by_name(square_choice) 
-      if square.contents == " "
+      if sq_available?(square)
         square.contents = player.mark
         return true  
       end
