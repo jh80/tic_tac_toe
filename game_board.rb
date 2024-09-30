@@ -55,7 +55,10 @@ class GameBoard
     @squares.each do |square|
       return square if square.name == sq_name.downcase
     end
-    puts "I could not find your square. Alert programmer of issue."
+    puts <<~RUBY
+      I could not find your square. Make sure to use a LetterNumber format (ex: a1).
+      Using the letters and numbers on the grid.
+    RUBY
   end
 
   # Alternate route, more efficient, less dynamic
