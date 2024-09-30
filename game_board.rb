@@ -17,11 +17,8 @@ class GameBoard
   end
 
   def print_board
-    # TO DO later refactor to use an each loop
     count = 0
-    (1..@width).each do |column_num| 
-      print "   #{column_num}"
-    end
+    (1..@width).each {|column_num| print "   #{column_num}"}
     puts ""
     (1..@height).each do |row_num|
       row_letter = (row_num + 96).chr
@@ -34,9 +31,7 @@ class GameBoard
       unless row_num == @height
         puts ""
         print " "
-        (1..@width).each do 
-          print ' ---'
-        end
+        (1..@width).each {print ' ---'}
         puts ""
       end
     end
