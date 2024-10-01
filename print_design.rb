@@ -10,4 +10,9 @@ module PrintDesign
     (1..width).each {print ' ---'}
     puts ""
   end
+
+  def column_numbers(width) 
+    (0...(width)).each {|column_num| print "   #{column_num + 1}"}
+    puts ""
+  end
 end

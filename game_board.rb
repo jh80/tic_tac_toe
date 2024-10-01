@@ -20,8 +20,7 @@ class GameBoard
   end
 
   def print_board
-    (0...(@width)).each {|column_num| print "   #{column_num + 1}"}
-    puts ""
+    column_numbers(@width)
     (0...(@height)).each do |row_num|
       row_letter = (row_num + 97).chr
       print "#{row_letter } "
