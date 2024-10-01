@@ -20,15 +20,13 @@ class GameBoard
   end
 
   def print_board
-    count = 0
-    (0..(@width - 1)).each {|column_num| print "   #{column_num + 1}"}
+    (0...(@width)).each {|column_num| print "   #{column_num + 1}"}
     puts ""
-    (0..(@height - 1)).each do |row_num|
+    (0...(@height)).each do |row_num|
       row_letter = (row_num + 97).chr
       print "#{row_letter } "
       (1..@width).each do |column_num|
-        print " #{squares[count].contents}"
-        count += 1
+        print " #{squares[(row_num * column_num) + column_num].contents}"
         column_num == @width ? puts("") : print(' |')  
       end
       row_num == (@height - 1) ? puts("") : row_divider(@width) 
