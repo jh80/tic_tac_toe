@@ -100,7 +100,7 @@ class Game
         return puts "#{player.name} has won! The game is over!" if winner(player) 
         if !@board.any_sq_available?
           puts "no one won, but the game is over."
-          cat
+          print_cat
           return
         end
       end
