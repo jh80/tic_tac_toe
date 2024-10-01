@@ -75,13 +75,10 @@ class GameBoard
     @squares.any?{|square| square.available?}
   end
 
-  def generate_squares(width, height) 
+  def generate_squares
     squares = []
-    (width * height).times do |sq_num|
-      # This works without rounding down because both numbers are integers
-      row_letter = ((sq_num/width) + 97).chr
-      col_num = (sq_num%width) + 1
-      squares << Square.new(row_letter + (col_num.to_s))
+    (@width * @height).times do |sq_num|
+      squares << Square.new(sq_name_from_index(sq_num))
     end
     squares
   end
