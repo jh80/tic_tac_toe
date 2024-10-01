@@ -74,4 +74,10 @@ class GameBoard
   def any_sq_available?
     @squares.any?{|square| square.available?}
   end
+
+  def sq_name_from_index(index)
+    row_letter = ((index/@width) + 97).chr
+    col_num = (index % @width) + 1
+    row_letter + (col_num.to_s)
+  end
 end
