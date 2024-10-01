@@ -16,6 +16,9 @@ module PrintDesign
     puts ""
   end
 
+  # TO DO should I make squares a parameter? the method cannot be used by an object that doesn't have a list of sqs
+  # Maybe I should just make a null case - if no squares list with squares with contents - then just
+  # print a space or return an error, i guess aka use an error handler
   def print_row_sqs(width, row_num) 
     (0...width).each do |column_num|
       print " #{squares[(row_num * width) + column_num].contents}"
