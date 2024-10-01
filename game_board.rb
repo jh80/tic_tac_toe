@@ -31,9 +31,9 @@ class GameBoard
         count += 1
         column_num == @width ? puts("") : print(' |')  
       end
-      row_divider(@width) unless row_num == @height
+      row_num == @height ? puts("") : row_divider(@width) 
     end
-    puts ""
+    
   end
 
   # TO DO this is pretty much find_sq_by_name I don't think I need both- pick one
