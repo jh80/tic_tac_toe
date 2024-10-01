@@ -22,4 +22,9 @@ module PrintDesign
       column_num == (width - 1) ? puts("") : print(' |')  
     end
   end
+
+  def print_row_letter(row_num, extra = " ")
+    row_letter = (row_num + 97).chr
+    print row_letter + extra
+  end
 end
