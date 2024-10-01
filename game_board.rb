@@ -5,18 +5,11 @@ class GameBoard
   include PrintDesign
 
   attr_reader :squares, :any_sq_available
-  # TO DO come back later to tighten the creattion variable setting of squares (each)
+
   def initialize(width, height=width) 
-    @squares = []
     @width = width
     @height = height
-    # Create all the necessary Square instances
-    (width * height).times do |sq_num|
-      # This works without rounding down because both numbers are integers
-      row_letter = ((sq_num/width) + 97).chr
-      col_num = (sq_num%width) + 1
-      @squares << Square.new(row_letter + (col_num.to_s))
-    end
+    @squares = generate_squares
   end
 
   def print_board
