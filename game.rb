@@ -3,15 +3,28 @@ require "./print_design.rb"
 class Game
   include PrintDesign
 
+  @@messages = {
+    board_at_max_width: "The game board can be a maximum of 10 squares long. The width of the board is now 10.",
+    board_at_max_height: "The game board can be a maximum of 10 squares tall. The height of the board is now 10.",
+    welcome_instructions: <<~RUBY, 
+      \nHello! Welcome to tic-tac-toe! 
+      This game follows traditional tic-tac-toe rules.
+      Submit your square choice in the format of LetterNumber ex: a1 
+      Have fun! \n
+    RUBY
+    winner_announcement: " has won! The game is over!",
+    cat_game_announcement: "no one won, but the game is over."
+  }
+
   def initialize(width = 3, height = width, player1_name = "Player1", player2_name = "Player2")
     if width > 10 
       width = 10
-      puts "The game board can be a maximum of 10 squares long. The width of the board is now 10."
+      puts @@messages[:board_at_max_width]
     end
 
     if height > 10
       height = 10
-      puts "The game board can be a maximum of 10 squares tall. The height of the board is now 10."
+      puts @@message[:board_at_max_height]
     end
 
     @player1 = Player.new(player1_name, "x")
@@ -82,12 +95,7 @@ class Game
 
   def play 
     # Welcome players and give guidence
-    puts <<~RUBY 
-      \nHello! Welcome to tic-tac-toe! 
-      This game follows traditional tic-tac-toe rules.
-      Submit your square choice in the format of LetterNumber ex: a1 
-      Have fun! \n
-    RUBY
+    puts @@messages[:welcome_instructions]
     players = [@player1, @player2]
     @board.print_board
     loop do 
@@ -97,9 +105,9 @@ class Game
           break if @board.execute_pick(choice, player)
         end
         @board.print_board
-        return puts "#{player.name} has won! The game is over!" if winner(player) 
+        return puts player.name + @@messages[:winner_announcement] if winner(player) 
         if !@board.any_sq_available?
-          puts "no one won, but the game is over."
+          puts @@messages[:cat_game_announcement]
           print_cat
           return
         end
