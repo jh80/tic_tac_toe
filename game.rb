@@ -106,12 +106,16 @@ class Game
         end
         @board.print_board
         return puts player.name + @@messages[:winner_announcement] if winner(player) 
-        if !@board.any_sq_available?
-          puts @@messages[:cat_game_announcement]
-          print_cat
-          return
-        end
+        return if cat_game?
       end
+    end
+  end
+
+  def cat_game? 
+    if !@board.any_sq_available?
+      puts @@messages[:cat_game_announcement]
+      print_cat
+      return true
     end
   end
 end
