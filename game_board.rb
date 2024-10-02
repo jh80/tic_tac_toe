@@ -58,9 +58,8 @@ class GameBoard
         square.contents = player.mark
         return true  
       end
-    else
-      return false
     end
+    return false
   end
 
   def sq_available?(square)
