@@ -11,4 +11,11 @@ class Player
     # Return players sq choice
     gets.chomp
   end
+
+  def take_turn(board) 
+    loop do
+      choice = get_sq_choice 
+      break if board.execute_pick(choice, self)
+    end
+  end
 end

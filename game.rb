@@ -100,10 +100,7 @@ class Game
     @board.print_board
     loop do 
       players.each do |player|
-        loop do
-          choice = player.get_sq_choice 
-          break if @board.execute_pick(choice, player)
-        end
+        player.take_turn(@board)
         @board.print_board
         return if ended_game?(player)
       end
