@@ -105,8 +105,7 @@ class Game
           break if @board.execute_pick(choice, player)
         end
         @board.print_board
-        return puts player.name + @@messages[:winner_announcement] if winner(player) 
-        return if cat_game?
+        return if ended_game?(player)
       end
     end
   end
@@ -117,5 +116,13 @@ class Game
       print_cat
       return true
     end
+  end
+
+  def ended_game?(player) 
+    if winner(player)
+      puts player.name + @@messages[:winner_announcement]
+      return true
+    end
+    cat_game?
   end
 end
