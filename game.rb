@@ -128,5 +128,6 @@ class Game
       puts @@messages[:board_at_max_width]
       return dimension_max
     end
+    return dimension
   end
 end
