@@ -97,10 +97,8 @@ class Game
     puts @@messages[:welcome_instructions]
     players = [@player1, @player2]
     @board.print_board
-    loop do 
-      continue = turn_sequence(players, @board)
-      return if !continue
-    end
+    continue = rotate_turns(players, @board)
+    return if !continue
   end
 
   def turn_sequence(players, board) 
@@ -111,7 +109,12 @@ class Game
     end
   end
 
-
+  def rotate_turns(players, board)
+    loop do 
+      continue = turn_sequence(players, board)
+      return false if !continue
+    end
+  end
 
   def cat_game? 
     if !@board.any_sq_available?
