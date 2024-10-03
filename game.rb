@@ -99,11 +99,16 @@ class Game
     players = [@player1, @player2]
     @board.print_board
     loop do 
-      players.each do |player|
-        player.take_turn(@board)
-        @board.print_board
-        return if ended_game?(player)
-      end
+      continue = turn_sequence(players, @board)
+      return if !continue
+    end
+  end
+
+  def turn_sequence(players, board) 
+    players.each do |player|
+      player.take_turn(board)
+      board.print_board
+      return false if ended_game?(player)
     end
   end
 
