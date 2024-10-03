@@ -94,7 +94,6 @@ class Game
   end
 
   def play 
-    # Welcome players and give guidence
     puts @@messages[:welcome_instructions]
     players = [@player1, @player2]
     @board.print_board
@@ -111,6 +110,8 @@ class Game
       return false if ended_game?(player)
     end
   end
+
+
 
   def cat_game? 
     if !@board.any_sq_available?
