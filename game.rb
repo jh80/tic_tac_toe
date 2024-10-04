@@ -38,15 +38,7 @@ class Game
   def row_winner?(player) 
     # Start at begining of each row
     (0...(@width*@height)).step(@width) do |row|
-      winner = true 
-      # Check through row
-      (row...row+@width).each do |index| 
-        unless @board.squares[index].contents == player.mark 
-          winner = false
-          break
-        end 
-      end
-      return true if winner == true 
+      return true if player_array(player, row, row+@width).length == @width
     end
     return false
   end
@@ -54,18 +46,10 @@ class Game
   def diagonal_winner?(player) 
     # Start at the top corners
     (0...@width).step(@width - 1) do |starting_side|
-      winner = true 
       # Check down diagonal
       step_angle = starting_side == 0 ? (@width + 1) : (@width - 1)
       ending_side = starting_side == 0 ? (@width * @height) : (@width * (@height - 1) + 1)
-      (starting_side...(ending_side)).step(step_angle) do |index| 
-        unless @board.squares[index].contents == player.mark 
-          winner = false
-          break 
-        end
-      end
-      # TO DO Shorten all these tiny coniditionals into one line
-      return true if winner == true 
+      return true if player_array(player, starting_side, ending_side, step_angle).length == @width
     end
     return false
   end
