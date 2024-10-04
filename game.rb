@@ -29,8 +29,9 @@ class Game
   def column_winner?(player) 
     # Start a check at top of each column
     (0...@width).each do |column|
-      return player_array(player, column, (@width * @height), @width).length == @height
+      return true if player_array(player, column, (@width * @height), @width).length == @height
     end
+    return false
   end 
 
   # TO DO can row_winner? and column_winner? be reduced into one method?
