@@ -1,7 +1,9 @@
 require "./print_design.rb"
+require "./winnable.rb"
 
 class Game
   include PrintDesign
+  include Winnable
 
   @@messages = {
     board_at_max_width: "The game board can be a maximum of 10 squares long. The width of the board is now 10.",
@@ -27,17 +29,8 @@ class Game
   def column_winner?(player) 
     # Start a check at top of each column
     (0...@width).each do |column|
-      winner = true
-      # Check down the column
-      (column...(@width * @height)).step(@width) do |index|
-        unless @board.squares[index].contents == player.mark 
-          winner = false
-          break
-        end
-      end
-      return true if winner == true
+      return player_array(player, column, (@width * @height), @width).length == @height
     end
-    return false
   end 
 
   # TO DO can row_winner? and column_winner? be reduced into one method?
