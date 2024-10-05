@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Player
   attr_reader :mark, :name
 
@@ -12,9 +14,9 @@ class Player
     gets.chomp
   end
 
-  def take_turn(board) 
+  def take_turn(board)
     loop do
-      choice = get_sq_choice 
+      choice = get_sq_choice
       break if board.execute_pick(choice, self)
     end
   end

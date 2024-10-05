@@ -1,20 +1,22 @@
-class Square 
+# frozen_string_literal: true
+
+class Square
   attr_accessor :contents
   attr_reader :name
 
   @@all = []
-  @@top = "---"
+  @@top = '---'
   @@bottom = @@top
-  @@r_side = "|"
+  @@r_side = '|'
   @@l_side = @@r_side
   def initialize(name)
     @name = name
-    @default_contents = " "
+    @default_contents = ' '
     @contents = @default_contents
     @@all << self
   end
-  
-  def available? 
+
+  def available?
     @default_contents == @contents
   end
 end
