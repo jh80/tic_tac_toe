@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # Square hold the information about a square
-
 class Square
   attr_accessor :contents
   attr_reader :name

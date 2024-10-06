@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # Print design holds ascii designs that will print
-
 module PrintDesign
   def print_cat
     puts '  ^   ^'
