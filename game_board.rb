@@ -10,19 +10,18 @@ class GameBoard
 
   attr_reader :squares, :any_sq_available
 
-  @@messages = {
-    sq_not_available: "That square has already been chosen, pick an available square.\n\n",
-    sq_not_found: <<~RUBY
-      I could not find your square.#{' '}
-      Make sure to use a LetterNumber format (ex: a1).
-      Using the letters and numbers on the grid.\n
-    RUBY
-  }
-
   def initialize(width, height = width)
     @width = width
     @height = height
     @squares = generate_squares
+    @messages = {
+      sq_not_available: "That square has already been chosen, pick an available square.\n\n",
+      sq_not_found: <<~RUBY
+        I could not find your square.#{' '}
+        Make sure to use a LetterNumber format (ex: a1).
+        Using the letters and numbers on the grid.\n
+      RUBY
+    }
   end
 
   def print_board
@@ -46,7 +45,7 @@ class GameBoard
     @squares.each do |square|
       return square if square.name == sq_name.downcase
     end
-    puts @@messages[:sq_not_found]
+    puts @messages[:sq_not_found]
   end
 
   # Alternate route, more efficient, less dynamic
@@ -68,7 +67,7 @@ class GameBoard
   def sq_available?(square)
     return true if square.available?
 
-    puts @@messages[:sq_not_available]
+    puts @messages[:sq_not_available]
     false
   end
 

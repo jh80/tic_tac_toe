@@ -7,14 +7,15 @@ class Square
   attr_reader :name
 
   @@all = []
-  @@top = '---'
-  @@bottom = @@top
-  @@r_side = '|'
-  @@l_side = @@r_side
+
   def initialize(name)
     @name = name
     @default_contents = ' '
     @contents = @default_contents
+    @top = '---'
+    @bottom = @top
+    @r_side = '|'
+    @l_side = @r_side
     @@all << self
   end
 
