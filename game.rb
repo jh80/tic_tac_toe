@@ -52,14 +52,6 @@ class Game
     end
   end
 
-  def cat_game?
-    return if @board.any_sq_available?
-
-    puts @messages[:cat_game_announcement]
-    print_cat
-    true
-  end
-
   def ended_game?(player)
     if winner(player)
       puts player.name + @messages[:winner_announcement]

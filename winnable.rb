@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Winnable contains method for detecting a win
+# Winnable contains method for detecting a win/tie
 
 module Winnable
   def player_array(player, start_i, end_i, step_amt = 1)
@@ -42,5 +42,13 @@ module Winnable
     return player if column_winner?(player) || row_winner?(player) || diagonal_winner?(player)
 
     false
+  end
+
+  def cat_game?
+    return if @board.any_sq_available?
+
+    puts @messages[:cat_game_announcement]
+    print_cat
+    true
   end
 end
