@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Player manages the turn of a player
+
 class Player
   attr_reader :mark, :name
 

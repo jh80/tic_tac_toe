@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Game holds the elements of the game and manages turns
+
 require './print_design'
 require './winnable'
 

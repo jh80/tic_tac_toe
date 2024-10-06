@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# GameBoard hold the squares of the game and manages their contents
+
 require './square'
 require './print_design'
 

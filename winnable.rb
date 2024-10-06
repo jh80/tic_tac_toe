@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Winnable contains method for detecting a win
+
 module Winnable
   def player_array(player, start_i, end_i, step_amt = 1)
     a = []
