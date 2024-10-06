@@ -30,8 +30,8 @@ module Winnable
     # Start at the top corners
     (0...@width).step(@width - 1) do |starting_side|
       # Check down diagonal
-      step_angle = starting_side == 0 ? (@width + 1) : (@width - 1)
-      ending_side = starting_side == 0 ? (@width * @height) : (@width * (@height - 1) + 1)
+      step_angle = starting_side.zero? ? (@width + 1) : (@width - 1)
+      ending_side = starting_side.zero? ? (@width * @height) : (@width * (@height - 1) + 1)
       return true if player_array(player, starting_side, ending_side, step_angle).length == @width
     end
     false
