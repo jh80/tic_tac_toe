@@ -1,11 +1,13 @@
-require "pry-byebug"
+# frozen_string_literal: true
 
-require "./game_board.rb"
-require "./player.rb"
-require "./square.rb"
-require "./game.rb"
+require 'pry-byebug'
 
-our_game = Game.new()
+require './game_board'
+require './player'
+require './square'
+require './game'
+
+our_game = Game.new
 
 # puts our_game.board.find_sq_by_name("b2").contents
 # puts our_game.board.find_sq_by_name("b2")
@@ -19,5 +21,3 @@ our_game = Game.new()
 # puts our_game.board.sq_available?(our_game.board.squares[0])
 
 our_game.play
-
-
