@@ -32,6 +32,19 @@ class GameBoard
     end
   end
 
+  def execute_pick(square_choice, player)
+    return unless (square = find_sq_by_name(square_choice))
+    return unless sq_available?(square)
+
+    square.contents = player.mark
+  end
+
+  def any_sq_available?
+    @squares.any? { |square| square.available? }
+  end
+
+  private
+
   # TO DO this is pretty much find_sq_by_name I don't think I need both- pick one
   def sq_index_from_name(sq_name)
     @squares.each_with_index do |square, index|
@@ -56,22 +69,11 @@ class GameBoard
 
   # TO DO maybe get rid of find_by_sq_name method and use sq_index method
 
-  def execute_pick(square_choice, player)
-    return unless (square = find_sq_by_name(square_choice))
-    return unless sq_available?(square)
-
-    square.contents = player.mark
-  end
-
   def sq_available?(square)
     return true if square.available?
 
     puts @messages[:sq_not_available]
     false
-  end
-
-  def any_sq_available?
-    @squares.any? { |square| square.available? }
   end
 
   def generate_squares
