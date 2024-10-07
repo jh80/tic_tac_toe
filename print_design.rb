@@ -2,6 +2,8 @@
 
 # Print design holds ascii designs that will print
 module PrintDesign
+  private
+
   def print_cat
     puts '  ^   ^'
     puts "( >'.'< )"
