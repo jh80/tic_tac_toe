@@ -36,6 +36,8 @@ class Game
     nil unless continue
   end
 
+  private
+
   def turn_sequence(players, board)
     players.each do |player|
       player.take_turn(board)

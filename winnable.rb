@@ -2,6 +2,8 @@
 
 # Winnable contains method for detecting a win/tie
 module Winnable
+  private
+
   def player_array(player, start_i, end_i, step_amt = 1)
     a = []
     (start_i...end_i).step(step_amt) do |i|
